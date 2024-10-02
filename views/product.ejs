@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Product list</h3>
+    <form action="/product/savedata" method="post">
+        <label for="">Category</label>
+        <select name="category" id="category" onchange="changeSubcat()">
+            <option value="">--Select category--</option>
+            <% catlist.map((i)=>{ %>
+                <option value="<%= i._id%>" <%= (editpr!='' &&editpr.category.equals(i._id) )?'selected':''%>><%= i.name%></option>
+            <% }) %>
+        </select> <br><br>
+        <label for="">Subcategory</label>
+        <select name="subcategory" id="subcategory">
+            <option value="">--Select subcategory--</option>
+            <% subcatdata!= ''  && subcatdata.map((i)=>{ %>
+                <option value="<%= i._id%>" <%= (editpr!='' &&editpr.subcategory.equals(i._id) )?'selected':''%>><%= i.sname%></option>
+            <% }) %>
+
+        </select> <br><br>
+        <label for="">Product</label>
+        <input type="text" name="product" id="product" value="<%= editpr!=''? editpr.product:''%>"><br><br>
+
+        <label for="">Price</label>
+        <input type="number" name="price" id="price" value="<%= editpr!=''? editpr.price:''%>"><br><br>
+
+        <!-- <label for="">Image</label>
+        <input type="file" name="image" id="image"><br><br> -->
+
+        <input type="submit" value="Save Data">
+
+    </form>
+
+    <table border="2">
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        <% prdata.map((i)=>{ %>
+            <tr>
+                <td><%= i._id %></td>
+                <td><%= i.category.name %></td>
+                <td><%= i.subcategory.sname %></td>
+                <td><%= i.product %></td>
+                <td><%= i.price %></td>
+                <td><a href="/product/edit/<%= i._id%>">Edit</a></td>
+
+            </tr>
+        <% }) %>
+    </table>
+    <script src="../../js/script.js"></script>
+</body>
+</html>

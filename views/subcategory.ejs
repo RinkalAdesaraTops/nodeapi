@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subcategory</title>
+</head>
+<body>
+    <h3>Add Subcategory </h3>
+    <span><%= messages!='' && message.success ?message.success:''%></span>
+    <form action="/subcategory/save" method="post">
+        <input type="hidden" name="subcatid" value="<%= editsubcat!='' ?editsubcat._id:''%>">
+        <label for="">Category:</label>
+        <select name="category">
+            <option value="">--Select Category--</option>
+            <% catlist.map((i)=>{ %>
+                <option value="<%= i._id%>" <%= editsubcat!='' && editsubcat.category.equals(i._id)?'selected':''%>><%= i.name%></option>
+            <% }) %>
+        </select><br><br>
+        <label for="">Subcategory:</label>
+        <input type="text" name="sname" id="" value="<%= (editsubcat!='')?editsubcat.sname:''%>"><br><br>
+        <input type="submit" value="Save Data">
+    </form>
+    <br><br>
+    <table border="2">
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Action</th>
+        </tr>
+        <% allsubcat.map((i,index)=>{ %>
+            <tr>
+                <td><%= i._id%></td>
+                <td><%= i.category.name%></td>
+                <td><%= i.sname%></td>
+                <td><a href="/subcategory/editsubcat/<%= i._id%>">Edit</a><a href="/subcategory/delsubcat/<%= i._id%>">Delete</a></td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

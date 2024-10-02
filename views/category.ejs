@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Category List</h3>
+
+    <a href="/user/logout">Logout</a>
+    <%= (message!='')?message:''%>
+    <form action="/admin/savecat" method="post">
+        <input type="hidden" name="catid" value="<%= editcat!=''?editcat._id:''%>">
+        Name:
+        <input type="text" name="name" id="name" value="<%= editcat!=''?editcat.name:''%>">
+        <br> <br> <br>
+        <input type="submit" value="Save Data">
+    </form>
+
+    <br><br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        <% allcat.map((i,index)=>{%>
+            <tr>
+                <td><%= index+1%></td>
+                <td><%= i.name %></td>
+                <td><a href="/admin/editcat/<%= i._id %>">Edit</a> <a href="/admin/delcat/<%= i._id %>">Delete</a></td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
