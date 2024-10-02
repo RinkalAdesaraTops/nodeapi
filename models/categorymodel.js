@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/ecommercedb')
+mongoose.connect('mongodb+srv://rinkaladesaratops:cpxiFgn8xe61JG40@rinkaldb.gpf9iwz.mongodb.net/?retryWrites=true&w=majority&appName=RinkalDB')
   .then(() => console.log('Connected to Db!'));
 
 const Schema = mongoose.Schema;
