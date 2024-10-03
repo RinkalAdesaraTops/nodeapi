@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1:27017/ecommercedb')
-  .then(() => console.log('Connected!'));
-
+mongoose.connect('mongodb+srv://rinkalsoni_161:foaCaEadecDotxvG@cluster0.e4hw6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('Connected to Db!'));
 const schema = mongoose.Schema
 const prSchema = new schema({
     product:String,

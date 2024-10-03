@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://rinkaladesaratops:cpxiFgn8xe61JG40@rinkaldb.gpf9iwz.mongodb.net/?retryWrites=true&w=majority&appName=RinkalDB')
+mongoose.connect('mongodb+srv://rinkalsoni_161:foaCaEadecDotxvG@cluster0.e4hw6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log('Connected to Db!'));
 
 const Schema = mongoose.Schema;
