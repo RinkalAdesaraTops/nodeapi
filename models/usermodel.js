@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://rinkalsoni_161:foaCaEadecDotxvG@cluster0.e4hw6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log('Connected to Db!'));
+  .then(() => console.log('Connected to new Db-usermodel!'));
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
